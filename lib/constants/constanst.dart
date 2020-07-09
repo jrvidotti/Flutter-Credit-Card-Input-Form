@@ -72,3 +72,28 @@ const kSignTextStyle = TextStyle(
 enum InputState { NUMBER, NAME, VALIDATE, CVV, DONE }
 
 enum CardCompany { VISA, MASTER, AMERICAN_EXPRESS, DISCOVER, OTHER }
+
+const Map<CardCompany, Set<List<String>>> CARD_NUM_PATTERNS =
+    <CardCompany, Set<List<String>>>{
+  CardCompany.VISA: <List<String>>{
+    <String>['4'],
+  },
+  CardCompany.AMERICAN_EXPRESS: <List<String>>{
+    <String>['34'],
+    <String>['37'],
+  },
+  CardCompany.DISCOVER: <List<String>>{
+    <String>['6011'],
+    <String>['622126', '622925'],
+    <String>['644', '649'],
+    <String>['65']
+  },
+  CardCompany.MASTER: <List<String>>{
+    <String>['51', '55'],
+    <String>['2221', '2229'],
+    <String>['223', '229'],
+    <String>['23', '26'],
+    <String>['270', '271'],
+    <String>['2720'],
+  },
+};

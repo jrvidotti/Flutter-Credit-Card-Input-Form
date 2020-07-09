@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 
 import 'constants/captions.dart';
 import 'constants/constanst.dart';
+import 'util/detect_card_company.dart';
 
 typedef CardInfoCallback = void Function(
     InputState currentState, CardInfo cardInfo);
@@ -124,7 +125,12 @@ class _CreditCardInputImplState extends State<CreditCardInputImpl> {
         widget.onCardModelChanged(
             _currentState,
             CardInfo(
-                name: name, cardNumber: cardNumber, validate: valid, cvv: cvv));
+              name: name,
+              cardNumber: cardNumber,
+              validate: valid,
+              cvv: cvv,
+              company: detectCardCompany(cardNumber, CARD_NUM_PATTERNS),
+            ));
       });
     }
 
